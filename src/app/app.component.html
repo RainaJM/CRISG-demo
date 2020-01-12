@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button
+          class="btn btn-outline-primary"
+          id="dropdownBasic1"
+          ngbDropdownToggle
+        >
+          Toggle dropdown
+        </button>
+        <div
+          ngbDropdownMenu
+          aria-labelledby="dropdownBasic1"
+          class="states-dropdown"
+        >
+          <button
+            ngbDropdownItem
+            (click)="showCities(state)"
+            *ngFor="let state of states"
+          >
+            {{ state }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 col-lg-12" style="display:flex;">
+    <div
+      class="col-md-2 col-lg-2"
+      style="border-right:1px solid lightgrey;height:70vh;overflow:auto;"
+    >
+      <h3>Cities</h3>
+      <ul>
+        <li *ngFor="let city of cities">{{ city }}</li>
+      </ul>
+    </div>
+    <div class="col-md-10 col-lg-10">
+      <agm-map
+        [latitude]="latitude"
+        [longitude]="longitude"
+        [mapTypeId]="mapType"
+      >
+      </agm-map>
+    </div>
+  </div>
+</div>
